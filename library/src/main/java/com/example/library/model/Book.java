@@ -3,8 +3,11 @@ package com.example.library.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Libros")
@@ -21,6 +24,11 @@ public class Book {
 	@OneToOne
 	@JoinColumn(name="cd_id", unique = true)
 	private Cd cd;
+
+	@ManyToOne
+	@JoinColumn(name = "author_id")
+	@JsonIgnore
+	private Author author;
 
 	public Book(){
 
