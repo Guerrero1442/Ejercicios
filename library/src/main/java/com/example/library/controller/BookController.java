@@ -16,6 +16,7 @@ import com.example.library.model.Book;
 import com.example.library.repository.BookRepository;
 import com.example.library.model.Query1;
 import com.example.library.model.Query2;
+import com.example.library.model.Query3;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -80,14 +81,20 @@ public class BookController {
 	}
 
 	//? GroupQuery SQL buscar cantidad de generos
-	@GetMapping("/bookgsql")
+	@GetMapping("/bookgjpa")
 	public List<Query1> getGenerosQuery1(){
 		return bookRepository.groupGenre();
 	}
 
 	//? GroupQuery JPA buscar cantidad de generos
-	@GetMapping("/bookgjpa")
+	@GetMapping("/bookgsql")
 	public List<Query2> getGenerosQuery2(){
 		return bookRepository.groupGenre2();
+	}
+
+	//? GroupQuery SQL buscar cantidad de libros por autor
+	@GetMapping("/booknsql")
+	public List<Query3> getNameAuthors1(){
+		return bookRepository.groupNameAuthor();
 	}
 }
