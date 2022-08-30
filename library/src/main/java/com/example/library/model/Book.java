@@ -23,7 +23,6 @@ public class Book {
 
 	@ManyToOne
 	@JoinColumn(name = "author_id")
-	@JsonIgnore
 	private Author author;
 
 	public Book(){
@@ -67,6 +66,14 @@ public class Book {
 
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
+	}
+
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
 }

@@ -14,8 +14,8 @@ public class Cd {
 	@Id
 	private int id;
 
-	private int duracion;
-	private int fecha_creacion;
+	private String duracion;
+	private String fecha_creacion;
 	
 	@OneToOne
 	@JoinColumn(name = "book_id", unique = true)
@@ -33,7 +33,7 @@ public class Cd {
 		this.book = book;
 	}
 
-	public Cd(int id, int duracion, int fecha_creacion) {
+	public Cd(int id, String duracion, String fecha_creacion) {
 		this.id = id;
 		this.duracion = duracion;
 		this.fecha_creacion = fecha_creacion;
@@ -47,19 +47,19 @@ public class Cd {
 		this.id = id;
 	}
 
-	public int getDuracion() {
+	public String getDuracion() {
 		return duracion;
 	}
 
-	public void setDuracion(int duracion) {
+	public void setDuracion(String duracion) {
 		this.duracion = duracion;
 	}
 
-	public int getFecha_creacion() {
+	public String getFecha_creacion() {
 		return fecha_creacion;
 	}
 
-	public void setFecha_creacion(int fecha_creacion) {
+	public void setFecha_creacion(String fecha_creacion) {
 		this.fecha_creacion = fecha_creacion;
 	}
 
