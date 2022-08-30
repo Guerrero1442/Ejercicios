@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.library.model.Book;
 import com.example.library.repository.BookRepository;
+import com.example.library.model.Query1;
+import com.example.library.model.Query2;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -75,5 +77,17 @@ public class BookController {
 	@GetMapping("/bookqlt/{t}")
 	public List<Book> getBooksTitle(@PathVariable String t){
 		return bookRepository.filterLetterTitle(t);
+	}
+
+	//? GroupQuery SQL buscar cantidad de generos
+	@GetMapping("/bookgsql")
+	public List<Query1> getGenerosQuery1(){
+		return bookRepository.groupGenre();
+	}
+
+	//? GroupQuery JPA buscar cantidad de generos
+	@GetMapping("/bookgjpa")
+	public List<Query2> getGenerosQuery2(){
+		return bookRepository.groupGenre2();
 	}
 }
