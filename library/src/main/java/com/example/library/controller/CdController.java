@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.library.model.Book;
 import com.example.library.model.Cd;
+import com.example.library.repository.BookRepository;
 import com.example.library.repository.CdRepository;
 
 @RestController
@@ -21,6 +23,9 @@ public class CdController {
 	
 	@Autowired
 	private CdRepository cdRepository;
+
+	@Autowired
+	private BookRepository bookRepository;
 
 	//? Ver todos los cds
 	@GetMapping("/cd")
@@ -68,5 +73,17 @@ public class CdController {
 		cdRepository.deleteById(CdId);
 
 		return c;
+	}
+
+	//? Unir un libro con un cd
+	@PutMapping("/cds/{idC}/{idB}")
+	public Cd union(@PathVariable Integer idC, @PathVariable Integer idB) {
+		Cd cd = cdRepository.findById(idC).get();
+		Book book =  bookRepository.findById(idB).get();
+		
+		cd.setBook(book);
+				
+		cdRepository.save(cd);
+		return cd;
 	}
 }

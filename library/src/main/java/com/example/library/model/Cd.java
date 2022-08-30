@@ -2,10 +2,10 @@ package com.example.library.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Cds")
@@ -17,12 +17,20 @@ public class Cd {
 	private int duracion;
 	private int fecha_creacion;
 	
-	@OneToOne(mappedBy = "cd")
-	@JsonIgnore
+	@OneToOne
+	@JoinColumn(name = "book_id", unique = true)
 	private Book book;
 
 	public Cd(){
 
+	}
+
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
 	}
 
 	public Cd(int id, int duracion, int fecha_creacion) {

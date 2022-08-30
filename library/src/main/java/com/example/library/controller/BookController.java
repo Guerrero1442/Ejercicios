@@ -70,4 +70,10 @@ public class BookController {
 
 		return b;
 	}
+
+	//? Agregar consulta busqueda por letra en el titulo
+	@GetMapping("/bookqlt/{t}")
+	public List<Book> getBooksTitle(@PathVariable String t){
+		return bookRepository.filterLetterTitle(t);
+	}
 }

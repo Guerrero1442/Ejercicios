@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,9 +20,6 @@ public class Book {
 	private String genre;
 	private String publisher;
 
-	@OneToOne
-	@JoinColumn(name="cd_id", unique = true)
-	private Cd cd;
 
 	@ManyToOne
 	@JoinColumn(name = "author_id")
@@ -73,11 +69,4 @@ public class Book {
 		this.publisher = publisher;
 	}
 
-	public Cd getCd() {
-		return cd;
-	}
-
-	public void setCd(Cd cd) {
-		this.cd = cd;
-	}
 }

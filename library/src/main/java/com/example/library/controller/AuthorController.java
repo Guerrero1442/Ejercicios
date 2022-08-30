@@ -37,7 +37,7 @@ public class AuthorController {
 
 	//? Publicar autor
 	@PostMapping("/author")
-	public Author saveAuthor (@RequestBody Author author){
+	public Author saveAuthor(@RequestBody Author author){
 		authorRepository.save(author);
 		return author;
 	}
