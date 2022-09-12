@@ -3,7 +3,6 @@ package co.edu.poli.examen1.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,5 +53,10 @@ public class EstadoController {
 	@GetMapping("/estadoSum")
 	public List<Query2> getSumPoblation(){
 		return estadoRepository.sumPoblation();
+	}
+
+	@GetMapping("/estadoGober/{t}")
+	public List<Estado> getGobernadorPartido(@PathVariable String t){
+		return estadoRepository.queryEstadoByPartidoGobernador(t);
 	}
 }
