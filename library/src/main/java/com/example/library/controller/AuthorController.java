@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.library.model.Author;
 import com.example.library.repository.AuthorRepository;
 
+import io.swagger.annotations.Api;
+
+// @Api(tags = {"Class: AuthorController"})
 @RestController
 @RequestMapping("/api/v1")
 public class AuthorController {
