@@ -1,23 +1,5 @@
 package com.example.airports.model;
-// "fs": "HTY",
-// "iata": "HTY",
-// "icao": "LTDA",
-// "name": "Hatay Airport",
-// "street1": "31000",
-// "city": "Antakya",
-// "countryCode": "TR",
-// "countryName": "Turkey",
-// "regionName": "Europe",
-// "timeZoneRegionName": "Europe/Istanbul",
-// "localTime": "2015-01-06T10:05:07.018",
-// "utcOffsetHours": 2,
-// "latitude": 36.364544,
-// "longitude": 36.28057,
-// "elevationFeet": 250,
-// "classification": 4,
-// "active": true,
-// "delayIndexUrl": "https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/HTY?codeType=fs",
-// "weatherUrl": "https://api.flightstats.com/flex/weather/rest/v1/json/all/HTY?codeType=fs"
+
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -70,6 +52,10 @@ public class Airport {
 	private String delayIndexUrl;
 
 	private String weatherUrl;
+
+	public Airport() {
+		
+	}
 
 	public Airport(String _id, String fs, String iata, String icao, String faa, String name, String street1,
 			String city, String cityCode, String stateCode, String postalCode, String countryName,

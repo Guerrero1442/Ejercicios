@@ -20,7 +20,7 @@ public interface AirportRepository extends MongoRepository<Airport, String> {
 	@Query("{countryName: ?0}")
 	List<Airport> findAirportByCountryName(String nameCountry);
 
-	@Query("{ $or : [ { regionName : ?0}, {utcOffsetHours : { $lt : ?1}  } ] }")
+	@Query(value = "{ $or : [ { regionName : ?0}, {utcOffsetHours : { $lt : ?1}  } ] }", fields = "{'name': 1, 'city': 1, '_id': 0}")
 	List<Airport> findAirportsByRegionHorario(String nameRegion, int utc);
 
 }
