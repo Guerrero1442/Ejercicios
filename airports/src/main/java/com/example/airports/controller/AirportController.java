@@ -34,21 +34,30 @@ public class AirportController {
 		return airportRepository.saveAll(airports);
 	}
 
-	@GetMapping("/AirportsQ1/{letter}")
+	@GetMapping("/AirportsQ1/{countryName}")
+	public List<Airport> findAirports2(@PathVariable String countryName){
+		return airportRepository.findAirportByCountryName(countryName);
+	}
+
+	@GetMapping("/AirportsQ2/{letter}")
 	public List<Airport> findAirports1(@PathVariable String letter){
 		return airportRepository.findAirportByLetters(letter);
 	}
 
-	@GetMapping("/AirportsQ2/{countryName}")
-	public List<Airport> findAirports2(@PathVariable String countryName){
-		return airportRepository.findAirportByCountryName(countryName);
-	}
 
 	@GetMapping("/AirportsQ3/{regionName}/{UTC}")
 	public List<Airport> findAirport3(@PathVariable String regionName,@PathVariable int UTC){
 		return airportRepository.findAirportsByRegionHorario(regionName, UTC);
 	}
 
+	@GetMapping("/AirportQ4/{min}/{max}")
+	public List<Airport> findAirport4(@PathVariable double min, @PathVariable double max){
+		return airportRepository.findAirportByRangeElevationFeet(min, max);
+	}
 
+	@GetMapping("/AirportQ5/{clasificacion}")
+	public List<Airport> findAirport5(@PathVariable int clasificacion){
+		return airportRepository.findAirportByClasificacion(clasificacion);
+	}
 
 }
