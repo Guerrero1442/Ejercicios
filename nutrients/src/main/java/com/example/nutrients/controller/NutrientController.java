@@ -79,4 +79,14 @@ public class NutrientController {
 	public void deleteAll() {
 		nutrientRepository.deleteAll();
 	}
+
+	@GetMapping("/NutrientsQ1/{tui}/{type}")
+	public List<Nutrient> findNutrient1(@PathVariable int tui, @PathVariable String type){
+		return nutrientRepository.findNutrientByTuiAndType(tui, type);
+	}
+
+	@GetMapping("/NutrientsQ2/{FirstLetter}/{LastLetter}")
+	public List<Nutrient> findNutrient2(@PathVariable String FirstLetter, @PathVariable String LastLetter){
+		return nutrientRepository.findNutrientByName(FirstLetter, LastLetter);
+	}
 }

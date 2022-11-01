@@ -24,13 +24,13 @@ public class Nutrient {
 
 	private String type;
 
-	private String tui;
+	private int tui;
 	
 	public Nutrient(){
 		
 	}
 
-	public Nutrient(String _id, String name, int rda, String wiki, boolean required, String type, String tui) {
+	public Nutrient(String _id, String name, int rda, String wiki, boolean required, String type, int tui) {
 		this._id = _id;
 		this.name = name;
 		this.rda = rda;
@@ -88,11 +88,11 @@ public class Nutrient {
 		this.type = type;
 	}
 
-	public String getTui() {
+	public int getTui() {
 		return tui;
 	}
 
-	public void setTui(String tui) {
+	public void setTui(int tui) {
 		this.tui = tui;
 	}
 
