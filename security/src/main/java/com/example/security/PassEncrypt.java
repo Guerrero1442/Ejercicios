@@ -1,6 +1,6 @@
-package com.example.security;
+package main.java.com.example.security;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.
 
 public class PassEncrypt {
 	public static void main(String[] args){

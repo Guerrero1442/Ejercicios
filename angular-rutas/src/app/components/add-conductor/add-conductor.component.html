@@ -1,0 +1,35 @@
+<form #myForm="ngForm">
+
+  <div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="id">Id</label>
+          <input type="text" (keypress)="($event.charCode >= 48 && $event.charCode < 58)" class="form-control" id="id"
+            [(ngModel)]="conductor.id" (focusout)="existsPK(conductor.id)" name="id" />
+        </div>
+
+
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="conductor.nombre" name="nombre" required />
+        </div>
+
+        <div class=" form-group">
+          <label for="author">Fecha ingreso</label>
+          <input type="text" class="form-control" id="author" [(ngModel)]="conductor.fecha_ingreso name=" fecha_ingreso"
+            required />
+        </div>
+
+        <button [disabled]="isDisabled" (click)="saveBook()" class="btn btn-success">Submit</button>
+      </div>
+
+      <div *ngIf="submitted">
+        <h4>You submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newBook()">Add</button>
+      </div>
+
+    </div>
+  </div>
+  {{msgError}}
+</form>
